@@ -2,11 +2,11 @@
 *::after,
 *::before {
   box-sizing: border-box;
-  padding: none;
-  margin: none;
+  padding: 0;
+  margin: 0;
 }
 
-.books div{
+.books div {
   padding-bottom: 20px;
   border-bottom: 2px solid #efefef;
   margin-bottom: 10px;
@@ -17,7 +17,7 @@
 }
 
 button {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 form {
@@ -27,9 +27,9 @@ form {
 }
 
 form input {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .add-button {
-    width: fit-content;
+  width: fit-content;
 }
