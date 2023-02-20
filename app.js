@@ -65,7 +65,6 @@ function displayBooks() {
     document.querySelector('.books').addEventListener('click', (e) => {
         deleteBook(e.target)
     })
-
 }
 
 document.addEventListener('DOMContentLoaded', displayBooks)

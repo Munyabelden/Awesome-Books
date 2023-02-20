@@ -1,0 +1,35 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: none;
+  margin: none;
+}
+
+.books div{
+  padding-bottom: 20px;
+  border-bottom: 2px solid #efefef;
+  margin-bottom: 10px;
+}
+
+.books p {
+  margin: 0;
+}
+
+button {
+    margin-top: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+form input {
+    margin-top: 10px;
+}
+
+.add-button {
+    width: fit-content;
+}
