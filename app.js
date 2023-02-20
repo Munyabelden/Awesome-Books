@@ -6,10 +6,8 @@ function Book(title, author) {
 }
 
 function displayBooks() {
-    const storedBooks = [];
+    let books = getBook();
 
-    const books = storedBooks;
-    
     books.forEach((book) => addBook(book));
 
     function addBook(book) {
@@ -34,15 +32,34 @@ function displayBooks() {
         
         const book = new Book(title, author);
     
-        addBook(book);
+        addBook(book); 
+        const books = getBook();
+        books.push(book);
+        localStorage.setItem('books', JSON.stringify(books)) 
+
+
     })
 
-    
+    function getBook() {
+        let books = [];
+
+        if(localStorage.getItem('books') === null){
+            books = [];
+        }else{
+            books = JSON.parse(localStorage.getItem('books'))
+        }
+
+        return books
+    }
+
 
     function deleteBook(el) {
         if(el.classList.contains('remove-book')){
             el.parentElement.remove()
         }
+        const books = getBook();
+        books.splice(el);
+        localStorage.setItem('books', JSON.stringify(books))
     }
 
     document.querySelector('.books').addEventListener('click', (e) => {
