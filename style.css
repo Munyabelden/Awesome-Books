@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+h1 {
+  margin-block: 10px;
+  text-align: center;
+}
+
+.books {
+  margin-bottom: 10px;
+  margin-inline: auto;
+  border: 2px solid #232528;
+  width: 400px;
+  padding-right: -15px;
+}
+
+.books tr {
+  padding: 5px;
+  height: 20px;
+}
+
+.books tr:nth-child(odd) {
+  background: #efefef;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0 auto;
+  width: 250px;
+}
+
+form input {
+  margin-top: 10px;
+  width: 200px;
+  margin-inline: auto;
+  padding: 6px 5px;
+}
+
+.add-button {
+  justify-self: flex-end;
+  margin-inline: 78% auto;
+  width: fit-content;
+}
