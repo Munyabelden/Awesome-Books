@@ -116,6 +116,7 @@ Feel free to check the [issues page](https://github.com/Munyabelden/Awesome-Book
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+- I would like to thank Damil and Tesfaye for their help
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
