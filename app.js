@@ -1,10 +1,5 @@
 "use strict";
 
-function Book(title, author) {
-    this.title = title;
-    this.author = author;
-}
-
 function displayBooks() {
     let books = getBook();
 
@@ -18,7 +13,7 @@ function displayBooks() {
             bookItem.innerHTML = `
                <p>${book.title}</p>
                <p>${book.author}</p>
-               <button type="button" class="remove-book">remove</button>    
+               <button type="button" data-ref="${book.id}" class="remove-book">remove</button>    
             `;
         
             bookContainer.appendChild(bookItem);
@@ -29,15 +24,12 @@ function displayBooks() {
     
         const title = document.querySelector('#title').value;
         const author = document.querySelector('#author').value;
-        
-        const book = new Book(title, author);
+        const id = Math.random();
+        const book = {title, author, id};
     
         addBook(book); 
-        const books = getBook();
         books.push(book);
-        localStorage.setItem('books', JSON.stringify(books)) 
-
-
+        addToStorage();
     })
 
     function getBook() {
@@ -52,18 +44,24 @@ function displayBooks() {
         return books
     }
 
+    function removeBook(id){
+        books = books.filter(item => item.id != id);
+        addToStorage();
+    }
 
+    function addToStorage() {
+        localStorage.setItem('books', JSON.stringify(books)) 
+     }
+    
     function deleteBook(el) {
-        if(el.classList.contains('remove-book')){
-            el.parentElement.remove()
-        }
-        const books = getBook();
-        books.splice(el);
-        localStorage.setItem('books', JSON.stringify(books))
+         if(el.classList.contains('remove-book')){
+             el.parentElement.remove()
+         }
     }
 
     document.querySelector('.books').addEventListener('click', (e) => {
         deleteBook(e.target)
+        removeBook(e.target.getAttribute('data-ref'))
     })
 }
 
