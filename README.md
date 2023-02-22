@@ -29,7 +29,7 @@
 # 📖 Awesome Books App <a name="about-project"></a>
 
 
-**Awesome Books App** is an app that allows you to add and delete books and it stores them for you in object arrays
+**Awesome Books App** is a single page app that allows you to add and delete books and it stores them for you in object arrays
 
 ## 🛠 Built With <a name="built-with"></a>
 
