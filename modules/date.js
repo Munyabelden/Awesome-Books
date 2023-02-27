@@ -1,5 +1,3 @@
-"use strict";
-
 import { DateTime } from './luxon/src/luxon.js';
 
 const displayDate = document.querySelector('.date-and-time');

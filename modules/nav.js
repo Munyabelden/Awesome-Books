@@ -1,5 +1,3 @@
-"use strict";
-
 const listBtn = document.querySelector('#list-btn');
 const formBtn = document.querySelector('#form-btn');
 const contactBtn = document.querySelector('#contact-btn');

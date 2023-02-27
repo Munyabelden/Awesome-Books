@@ -1,5 +1,3 @@
-"use strict";
-
 class Book {
     constructor(title, author, id) {
         this.title = title;
