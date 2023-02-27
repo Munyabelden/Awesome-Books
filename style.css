@@ -44,6 +44,12 @@ a {
   font-weight: 500;
 }
 
+.date-and-time {
+  margin: 5px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
 h2 {
   margin-block: 10px;
   text-align: center;
