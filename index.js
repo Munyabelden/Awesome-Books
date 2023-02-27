@@ -1,70 +1,8 @@
-"use strict";
+import { Book, UI, Storage } from './modules/app.js';
 
-class Book {
-    constructor(title, author, id) {
-        this.title = title;
-        this.author = author;
-        this.id = id;
-    }
-}
+import './modules/nav.js';
 
-class UI {
-    static displayBooks() {
-        const books = Storage.getBooks();
-
-        books.forEach((book) => UI.addBooks(book))
-    }
-
-    static addBooks(book) {
-        const bookContainer = document.querySelector('.books');
-
-        const bookItem = document.createElement('tr');
-
-        bookItem.innerHTML = `
-        <td>${book.title} by ${book.author}</td>
-        <td><button type="button" data-ref="${book.id}" class="remove-book">remove</button></td>
-        `
-       
-        bookContainer.appendChild(bookItem);
-    }
-
-    static deleteBook(el) {
-        if(el.classList.contains('remove-book')){
-            el.parentElement.parentElement.remove()
-        }
-   }
-
-    static clearValues() {
-        document.querySelector('#title').value = '';
-        document.querySelector('#author').value = '';
-    }
-}
-
-class Storage {
-    static getBooks(){
-        let books;
-
-        if(localStorage.getItem('books') === null){
-            books = [];
-        }else{
-            books = JSON.parse(localStorage.getItem('books'))
-        }
-
-        return books
-    }
-
-    static addToStore(book){
-        const books = Storage.getBooks();
-        books.push(book);
-        localStorage.setItem('books', JSON.stringify(books)); 
-    }
-
-    static removeBook(id){
-        let books = Storage.getBooks();
-        books = books.filter(item => item.id != id);
-        localStorage.setItem('books', JSON.stringify(books)); 
-    }
-}
+import './modules/date.js';
 
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
@@ -86,33 +24,4 @@ document.querySelector('#app-form').addEventListener('submit', (e) => {
 document.querySelector('.books').addEventListener('click', (e) => {
     UI.deleteBook(e.target);
     Storage.removeBook(e.target.getAttribute('data-ref'));
-})
-
-// Navigation
-
-const listBtn = document.querySelector('#list-btn');
-const formBtn = document.querySelector('#form-btn');
-const contactBtn = document.querySelector('#contact-btn');
-
-const table = document.querySelector('#book');
-const addPage = document.querySelector('#app-form');
-const contact = document.querySelector('.contact');
-
-
-listBtn.addEventListener('click', () => {
-    table.style.display = 'flex';
-    addPage.style.display = 'none';
-    contact.style.display = 'none';
-})
-
-formBtn.addEventListener('click', () => {
-    table.style.display = 'none';
-    addPage.style.display = 'flex';
-    contact.style.display = 'none';
-})
-
-contactBtn.addEventListener('click', () => {
-    table.style.display = 'none';
-    addPage.style.display = 'none';
-    contact.style.display = 'flex';
 })
