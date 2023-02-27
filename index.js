@@ -1,5 +1,3 @@
-"use strict";
-
 import { Book, UI, Storage } from './modules/app.js';
 
 import './modules/nav.js';
